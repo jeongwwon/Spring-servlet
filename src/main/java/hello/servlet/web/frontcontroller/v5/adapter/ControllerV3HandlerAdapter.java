@@ -21,7 +21,9 @@ public class ControllerV3HandlerAdapter implements MyHandlerAdapter {
     @Override
     public ModelView handle(HttpServletRequest request, HttpServletResponse response, Object handler) throws ServletException, IOException {
         ControllerV3 controller = (ControllerV3) handler;
+        System.out.println("request:"+request);
         Map<String,String> paramMap = createparamMap(request);
+        System.out.println("파라미터:"+paramMap);
         ModelView mv = controller.process(paramMap);
         return mv;
     }
